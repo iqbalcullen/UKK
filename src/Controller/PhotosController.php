@@ -46,7 +46,19 @@ class PhotosController extends AppController
     {
         $photo = $this->Photos->newEmptyEntity();
         if ($this->request->is('post')) {
+            $files = $this->request->getUploadedFiles();
+            $files['photo']->getStream();
+            $files['photo']->getSize();
+            $files['photo']->getClientFileName();
+
+            $myname = $this->request->getData()['photo']->getClientFileName();
+            $myext = substr(strrchr($myname, '.'), 1);
+
+            $mypath = "images/".$myname.".".$myext;
             $photo = $this->Photos->patchEntity($photo, $this->request->getData());
+            $photo->photo = $myname.".".$myext;
+
+            $files['photo']->moveTo(WWW_ROOT.$mypath);
             if ($this->Photos->save($photo)) {
                 $this->Flash->success(__('The photo has been saved.'));
 

@@ -81,6 +81,11 @@ class PhotosTable extends Table
             ->notEmptyString('title');
 
         $validator
+            ->scalar('photo')
+            ->requirePresence('photo', 'create')
+            ->notEmptyString('photo');
+
+        $validator
             ->scalar('description')
             ->requirePresence('description', 'create')
             ->notEmptyString('description');

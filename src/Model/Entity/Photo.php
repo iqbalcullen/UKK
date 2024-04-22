@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $user_id
  * @property string $title
+ * @property string $photo
  * @property string $description
  * @property \Cake\I18n\DateTime $date_upload
  * @property int $album_id
@@ -34,6 +35,7 @@ class Photo extends Entity
     protected array $_accessible = [
         'user_id' => true,
         'title' => true,
+        'photo' => true,
         'description' => true,
         'date_upload' => true,
         'album_id' => true,

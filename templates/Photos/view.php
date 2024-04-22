@@ -59,6 +59,15 @@ $this->Breadcrumbs->add([
 
 <div class="view text card">
     <div class="card-header">
+        <h3 class="card-title"><?= __('Photo') ?></h3>
+    </div>
+    <div class="card-body">
+        <?= $this->Text->autoParagraph(h($photo->photo)); ?>
+    </div>
+</div>
+
+<div class="view text card">
+    <div class="card-header">
         <h3 class="card-title"><?= __('Description') ?></h3>
     </div>
     <div class="card-body">

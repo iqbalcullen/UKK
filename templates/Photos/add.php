@@ -15,10 +15,11 @@ $this->Breadcrumbs->add([
 ?>
 
 <div class="card card-primary card-outline">
-    <?= $this->Form->create($photo, ['valueSources' => ['query', 'context']]) ?>
+    <?= $this->Form->create($photo,['encType' => 'multipart/form-data'], ['valueSources' => ['query', 'context']]) ?>
     <div class="card-body">
         <?= $this->Form->control('user_id', ['options' => $users, 'class' => 'form-control']) ?>
         <?= $this->Form->control('title') ?>
+        <?= $this->Form->control('photo', ['type' => 'file']) ?>
         <?= $this->Form->control('description') ?>
         <?= $this->Form->control('date_upload') ?>
         <?= $this->Form->control('album_id', ['options' => $albums, 'class' => 'form-control']) ?>

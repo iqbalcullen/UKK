@@ -41,9 +41,9 @@ $this->Breadcrumbs->add([
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($photos as $photo) : ?>
+                <?php foreach ($photos as $id => $photo) : ?>
                     <tr>
-                        <td><?= $this->Number->format($photo->id) ?></td>
+                        <td><?= $this->Number->format($id + 1) ?></td>
                         <td><?= $photo->has('user') ? $this->Html->link($photo->user->name, ['controller' => 'Users', 'action' => 'view', $photo->user->id]) : '' ?></td>
                         <td><?= h($photo->title) ?></td>
                         <td><?= h($photo->date_upload) ?></td>
@@ -71,5 +71,23 @@ $this->Breadcrumbs->add([
             <?= $this->Paginator->last('<i class="fas fa-angle-double-right"></i>', ['escape' => false]) ?>
         </ul>
     </div>
+
+
+    <div class="col-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h4 class="card-title">Galeri</h4>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-2">
+                    <a data-toggle="lightbox" data-gallery="gallery">
+                        <?= $this->Html->image('../images/'.$photo->photo, ['width' => '300']);?>
+                      <!-- <img src="https://via.placeholder.com/300/FFFFFF?text=1" class="img-fluid mb-2" alt="white sample"/> -->
+                    </a>
+                </div>
+              </div>
+            </div>
+          </div>
     <!-- /.card-footer -->
 </div>
